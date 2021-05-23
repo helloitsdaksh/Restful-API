@@ -31,11 +31,11 @@ class number2(Resource):
         if A == '+':
             output = number_one + number_two
         elif A == '-':
-            output = number_one + number_two
+            output = number_one - number_two
         elif A == '/':
-            output = number_one + number_two
+            output = number_one / number_two
         elif A == '*':
-            output = number_one + number_two
+            output = number_one * number_two
         return {'API':'Calculator','Number_1':number_one,'Number_2':number_two,'Output':output}
 
 
@@ -43,6 +43,7 @@ api.add_resource(home,'/')
 api.add_resource(operator,'/<string:A>')
 api.add_resource(number1,'/<string:A>/<int:num1>')
 api.add_resource(number2,'/<string:A>/<int:num1>/<int:num2>')
+
 
 
 if __name__ == "__main__":

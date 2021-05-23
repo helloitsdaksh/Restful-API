@@ -7,22 +7,22 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 api = Api(app)
-
+#home shows list of operators
 class home(Resource):
     def get(self):
         x = ['+','-','/','*']
         return {'API':'Calculator','Input': x},201
-
+#asks user for input(number1)
 class operator(Resource):
     def get(self,A):
         func = A
         return {'API':'Calculator','operator': func,'Input':'Enter Number 1:'}
-
+#asks user for input(number2)
 class number1(Resource):
     def get(self,A,num1):
         number_one = num1
         return {'API':'Calculator','Number_1':number_one,'Input':'Enter Number 2:'}
-
+#finally shows output of the two numbers in a json format
 class number2(Resource):
     def get(self,A,num1,num2):
         number_one = num1

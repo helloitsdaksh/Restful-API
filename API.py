@@ -14,7 +14,37 @@ class home(Resource):
         x = ['+','-','/','*']
         return {'API':'Calculator','Input': x},201
 
+class operator(Resource):
+    def get(self,A):
+        func = A
+        return {'API':'Calculator','operator': func,'Input':'Enter Number 1:'}
+
+class number1(Resource):
+    def get(self,A,num1):
+        number_one = num1
+        return {'API':'Calculator','Number_1':number_one,'Input':'Enter Number 2:'}
+
+class number2(Resource):
+    def get(self,A,num1,num2):
+        number_one = num1
+        number_two = num2
+        output = 0
+        if A == '+':
+            output = number_one + number_two
+        elif A == '-':
+            output = number_one + number_two
+        elif A == '/':
+            output = number_one + number_two
+        elif A == '*':
+            output = number_one + number_two
+        return {'API':'Calculator','Number_1':number_one,'Number_2':number_two,'Output':output}
+
 
 api.add_resource(home,'/')
+api.add_resource(operator,'/<string:A>')
+api.add_resource(number1,'/<string:A>/<int:num1>')
+api.add_resource(number2,'/<string:A>/<int:num1>/<int:num2>')
+
+
 if __name__ == "__main__":
     app.run(debug = True)

@@ -1,6 +1,6 @@
-from flask import Flask, jsonify
-from flask_restful import Api, Resource,abort
-from flask import (Blueprint, current_app, flash, jsonify, redirect, request,url_for)
+from flask import Flask
+from flask_restful import Api, Resource
+# from flask import (Blueprint, current_app, flash, jsonify, redirect, request,url_for)
 from flask_cors import CORS
 
 
@@ -37,12 +37,11 @@ class number2(Resource):
         elif A == '*':
             output = number_one * number_two
         return {'API':'Calculator','Number_1':number_one,'Number_2':number_two,'Output':output}
-
-
+    
 api.add_resource(home,'/')
-api.add_resource(operator,'/<string:A>')
-api.add_resource(number1,'/<string:A>/<int:num1>')
-api.add_resource(number2,'/<string:A>/<int:num1>/<int:num2>')
+api.add_resource(operator,'/<string:A>',methods= ['GET'])
+api.add_resource(number1,'/<string:A>/<int:num1>',methods= ['GET'])
+api.add_resource(number2,'/<string:A>/<int:num1>/<int:num2>',methods = ['GET'])
 
 
 

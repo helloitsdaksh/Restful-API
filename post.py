@@ -10,12 +10,14 @@ class home(Resource):
     def get(self):
         return jsonify({"input" : "params"})
 
-L =[]
+L = []
 class parameters(Resource):
     def post(self):
         req_data = request.get_json()
         L.append(req_data)
-        return jsonify(L)
+        print(L)
+        return jsonify({"values":L})
+
 
 api.add_resource(home,"/",methods = ['GET'])
 api.add_resource(parameters,"/params",methods = ['POST'])

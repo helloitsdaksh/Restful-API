@@ -1,11 +1,9 @@
 from flask import Flask
 from flask_restful import Api, Resource
 # from flask import (Blueprint, current_app, flash, jsonify, redirect, request,url_for)
-from flask_cors import CORS
-
 
 app = Flask(__name__)
-CORS(app)
+
 api = Api(app)
 #home shows list of operators
 class home(Resource):

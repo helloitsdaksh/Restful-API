@@ -1,10 +1,8 @@
 from flask import Flask,jsonify,request
 from flask_restful import Api, Resource
-from flask_cors import CORS
 
 
 app = Flask(__name__)
-CORS(app)
 api = Api(app) 
 class home(Resource):
     def get(self):
@@ -13,7 +11,7 @@ class home(Resource):
 L = []
 class parameters(Resource):
     def post(self):
-        req_data = request.get_json()
+        req_data = request.form['principal']
         L.append(req_data)
         print(L)
         return jsonify({"values":L})

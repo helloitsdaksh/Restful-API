@@ -1,4 +1,3 @@
-from ssl import ALERT_DESCRIPTION_CERTIFICATE_REVOKED
 from flask import Flask,jsonify
 from flask_restful import Api, Resource
 from flask_cors import CORS
